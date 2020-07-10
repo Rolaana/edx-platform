@@ -500,10 +500,9 @@ class VideosHandlerTestCase(VideoUploadTestMixin, CourseTestCase):
                 security_token=credentials['session_token']
             )
 
-    @patch('contentstore.views.videos.LOGGER')
     @patch('boto.s3.key.Key')
     @patch('boto.s3.connection.S3Connection')
-    def test_upload_to_vem_pipeline(self, mock_conn, mock_key, mock_logger):
+    def test_upload_to_vem_pipeline(self, mock_conn, mock_key):
         """
         Test that every video upload is uploaded to VEM.
         """
